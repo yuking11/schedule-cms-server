@@ -12,8 +12,9 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
         ports:
             - 3306:3306
-    server:
+    app:
         build: .
+        command: sh -c "/wait-for-it.sh mysql:3306; python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
         ports:
             - 8000:8000
         links:
