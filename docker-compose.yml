@@ -1,0 +1,30 @@
+version: "3"
+services:
+    mysql:
+        image: mysql:5.7
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        volumes:
+            - ./db_data:/var/lib/mysql
+            - ./localhost.sql:/docker-entrypoint-initdb.d/install_db.sql
+        environment:
+            MYSQL_DATABASE: "schedule_cms"
+            MYSQL_USER: "root"
+            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+        ports:
+            - 3306:3306
+    server:
+        build: .
+        ports:
+            - 8000:8000
+        links:
+            - mysql
+        depends_on:
+            - mysql
+        environment:
+            APP_VERSION: "local"
+            DB_HOST: "mysql"
+            DB_DATABASE: "schedule_cms"
+            DB_USERNAME: "root"
+            DB_PASSWORD: ""
+        volumes:
+            - .:/code:cached
