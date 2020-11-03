@@ -1,3 +1,11 @@
+# Mac
+.DS_store
+.vscode
+.history
+
+#DB
+db_data
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -119,6 +127,9 @@ venv.bak/
 
 # mkdocs documentation
 /site
+
+#Static
+/static
 
 # mypy
 .mypy_cache/
