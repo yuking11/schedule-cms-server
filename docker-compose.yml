@@ -29,3 +29,16 @@ services:
             DB_PASSWORD: ""
         volumes:
             - .:/code:cached
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            - PMA_ARBITRARY=1
+            - PMA_HOST=mysql:3306
+            - PMA_USER=root
+            - PMA_PASSWORD=
+        depends_on:
+            - mysql
+        ports:
+            - 8080:80
+        volumes:
+            - /sessions
