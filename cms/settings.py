@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'accounts',
+    'schedule',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,7 @@ STATIC_URL = '/static/'
 
 # デフォルトで使用する認証ユーザモデル
 AUTH_USER_MODEL = 'accounts.User'
+
+# 画像アップロード設定
+IMAGE_ROOT = os.path.join(BASE_DIR, 'uploads')
+IMAGE_URL = '/uploads/'
