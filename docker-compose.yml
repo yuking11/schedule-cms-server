@@ -14,9 +14,9 @@ services:
             - 3306:3306
     app:
         build: .
-        command: sh -c "/wait-for-it.sh mysql:3306; python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+        command: sh -c "/wait-for-it.sh mysql:3306; python manage.py migrate && python manage.py runserver 0.0.0.0:3000"
         ports:
-            - 8000:8000
+            - 3000:3000
         links:
             - mysql
         depends_on:
