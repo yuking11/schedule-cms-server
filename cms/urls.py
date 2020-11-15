@@ -40,7 +40,8 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('api/v1/schedule', schedule_views.ScheduleView.as_view()),
+    path('api/v1/schedule/', schedule_views.ScheduleView.as_view()),
+    path('api/v1/schedule/<int:pk>/', schedule_views.ScheduleDetailView.as_view()),
 
     path('api/swagger/<str:scheme>', schema_view.with_ui(cache_timeout=0), name='schema-json'),
     path('api/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

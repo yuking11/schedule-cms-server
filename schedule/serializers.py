@@ -7,6 +7,7 @@ class ScheduleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Schedule
         fields = (
+          'id',
           'event_date',
           'category',
           'title',

@@ -10,3 +10,9 @@ class ScheduleView(generics.ListAPIView):
     """スケジュール管理API"""
     queryset = Schedule.objects.all()
     serializer_class = ScheduleSerializer
+
+
+class ScheduleDetailView(generics.RetrieveAPIView):
+    """スケジュール管理API"""
+    queryset = Schedule.objects.all()
+    serializer_class = ScheduleSerializer
