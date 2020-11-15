@@ -5,7 +5,7 @@ from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-class ScheduleView(generics.ListAPIView):
+class ScheduleView(generics.ListCreateAPIView):
 # class ScheduleView(APIView):
     """スケジュール管理API"""
     queryset = Schedule.objects.all()
