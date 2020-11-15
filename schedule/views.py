@@ -12,7 +12,7 @@ class ScheduleView(generics.ListAPIView):
     serializer_class = ScheduleSerializer
 
 
-class ScheduleDetailView(generics.RetrieveAPIView):
+class ScheduleDetailView(generics.RetrieveUpdateDestroyAPIView):
     """スケジュール管理API"""
     queryset = Schedule.objects.all()
     serializer_class = ScheduleSerializer
